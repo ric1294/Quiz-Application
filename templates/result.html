@@ -1,0 +1,52 @@
+
+{% extends 'base.html' %}
+{%block head%}
+{{ super() }}
+<style>
+    label.options {
+    display: block!important;
+}
+</style>
+{%endblock%}
+
+{%block navlinks%}
+    <a class="btn btn-outline-success my-2 my-sm-0" href="/logout" style="margin-right:5px">Sign Out</a>
+
+     {% endblock%}
+{% block content %}
+
+<div class="container mt-5" style="margin-bottom:20px">
+
+    <div class="d-flex justify-content-center row">
+
+
+        <div class="col-md-10 col-lg-10">
+            <div class="border">
+                <div class="question bg-white p-3 border-bottom">
+                    <h1 style="text-align:center;font-variant: all-small-caps;">Your score</h1>
+                    <div class="d-flex flex-row justify-content-between align-items-center mcq">
+
+                        <div class="card-body">
+
+
+                            <h3 class="card-title">{{subject}} Quiz
+                                 <p style="float:right">  <a class="btn btn-outline-success my-2 my-sm-0"  href="/highest/{{subject}}"> Highest score in {{subject}} </a></p>
+                                <p>Total Question: {{questions}}</p>
+                            </h3>
+                            <h4 style="font-weight:bold">Result</h4>
+                            <h4>{{score}}</h4>
+                            <h4>Percentage</h4>
+                            <h4>{{percentage}}%</h4>
+                               <p >  <a class="btn btn-outline-success my-2 my-sm-0"  href=/quiz/{{subject}}> Retake </a></p>
+
+                          </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock%}
+
