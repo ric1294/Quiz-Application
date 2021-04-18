@@ -1,0 +1,71 @@
+
+{% extends 'base.html' %}
+{%block head%}
+{{ super() }}
+<style>
+    label.options {
+    display: block!important;
+}
+</style>
+{%endblock%}
+
+{%block navlinks%}
+    <a class="btn btn-outline-success my-2 my-sm-0" href="/logout" style="margin-right:5px">Sign Out</a>
+
+     {% endblock%}
+{% block content %}
+
+<div class="container mt-5" style="margin-bottom:20px">
+
+    <div class="d-flex justify-content-center row">
+
+
+        <div class="col-md-10 col-lg-10">
+            <div class="border">
+                <div class="question bg-white p-3 border-bottom">
+                    <h1 style="text-align:center;font-variant: all-small-caps;">Highest score</h1>
+                    <div class="d-flex flex-row justify-content-between align-items-center mcq">
+
+                        <div class="card-body">
+
+
+
+                             <table class="table table-striped col-md-8 col-lg-8 col-sm-8 offset-md-2">
+          <thead>
+            <tr>
+              <th >Username</th>
+              <th >Score</th>
+
+            </tr>
+          </thead>
+          <tbody>
+          {%for datalist in score%}
+
+          {%if datalist%}
+
+            <tr>
+                <td>{{datalist['username']}}</td>
+                <td>{{datalist['score']}}</td>
+
+            </tr>
+
+          {%endif%}
+            {%endfor%}
+
+          </tbody>
+      </table>
+                             <p style="text-align:center"><a class="btn btn-outline-success my-2 my-sm-0"  href=/quiz/{{score[0]['subject']}}> Retake </a></p>
+                             <p style="text-align:center"><a class="btn btn-outline-success my-2 my-sm-0"  href=/subjects> Another Subject </a></p>
+
+
+                          </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock%}
+
