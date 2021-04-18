@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{%block head%}
+{{ super() }}
+<style>
+    label.options {
+    display: block!important;
+}
+.mb-5, .my-5 {
+    margin-bottom: 6rem!important;
+}
+</style>
+{%endblock%}
+{%block navlinks%}
+    <a class="btn btn-outline-success my-2 my-sm-0" href="/logout" style="margin-right:5px">Sign Out</a>
+
+     {% endblock%}
+{% block content %}
+
+<div class="container mt-5 mb-5">
+    <div class="d-flex justify-content-center row">
+        <div class="col-md-10 col-lg-10">
+            <div class="border">
+                <div class="question bg-white p-3 border-bottom">
+                    <div class="d-flex flex-row justify-content-between align-items-center mcq">
+                        <h4>{{subject}} MCQ Quiz
+
+                        </h4>
+                         <p style="float:right">  <a class="btn btn-outline-success my-2 my-sm-0"  href=/subjects> Back </a></p>
+                    </div>
+                </div>
+                <form action=result/{{subject}} method="post">
+                {% for qus,choices in questions.items()%}
+                <div class="question bg-white p-3 border-bottom">
+                    <div class="d-flex flex-row align-items-center question-title">
+                        <h3 class="text-danger">Q.</h3>
+                        <h5 class="mt-1 ml-2">{{qus}}</h5>
+                    </div>
+                    {% set choicename = loop.index%}
+                    {% for choice in choices%}
+                    <div class="ans ml-2">
+                        <label class="radio" style="width: 50%;">
+                            <input type="radio" name="{{choicename}}" value="{{choice}}"> <span style="width:100%">{{choice}}</span>
+                        </label>
+                    </div>
+                    {%endfor%}
+
+                </div>
+                {%endfor%}
+                <div class="bg-white text-center" >
+                   <button type="submit" class="btn btn-success" style="margin:20px">Submit</button>
+                    </button>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock%}
+
