@@ -1,0 +1,116 @@
+{% extends 'base.html' %}
+{% block head%}
+{{super()}}
+<style>
+body {
+  /* The image used */
+  background-image: url('{{ url_for('static', filename='images/mainimg.png') }}');
+
+  /* Full height */
+  height: 100%;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.text-muted {
+    color: #f44336d6!important;
+}
+.mb-5, .my-5 {
+    margin-bottom: 4rem!important;
+}
+.mt-5, .my-5 {
+    margin-top: 2rem!important;
+}
+.border {
+    border: 1px solid #dee2e6!important;
+    background: aliceblue;
+}
+@media only screen and (max-width: 1200px) {
+ .mb-5, .my-5 {
+    margin-bottom: 21rem!important;
+}
+.border {
+    border: 1px solid #dee2e6!important;
+    background: aliceblue;
+    margin-top: 24%;
+}
+}
+@media only screen and (max-width: 1024px) {
+ .mb-5, .my-5 {
+    margin-bottom: 45rem!important;
+}
+.border {
+    border: 1px solid #dee2e6!important;
+    background: aliceblue;
+    margin-top: 25%;
+}
+}
+
+@media only screen and (max-width: 375px) {
+ .mb-5, .my-5 {
+    margin-bottom: 15rem!important;
+}
+.border
+{
+    border: 1px solid #dee2e6!important;
+    background: aliceblue;
+    margin-top: 27%;
+}
+}
+</style>
+{% endblock %}
+{%  block content%}
+<div class="container-fluid mt-5 mb-5 bg">
+    <div class="d-flex justify-content-center row">
+        <div class="col-md-6 col-lg-6">
+            <div class="border">
+              <h1 style="text-align:center;margin-top:5%">Signup !</h1>
+              <div class="container-fluid text-center">
+                <div class="row content">
+                  <div class="col-md-8 offset-md-2">
+                    <form action=signup method="post" style="margin-bottom: 10%;text-align: left;">
+                      <div class="form-group">
+                           <p style="text-align: center;color: #f44336d6;">{{existaccount}}</p>
+                        <label for="exampleInputEmail1" style="text-align:left">Username</label>
+                           <small class="form-text text-muted">
+
+                                {{emailerror}}
+
+
+                        </small>
+                        <input type="text" class="form-control" name="user" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Username">
+
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputPassword1">Password</label>
+                              <small class="form-text text-muted">
+
+                                {{passerror}}
+
+                        </small>
+                        <input type="password" class="form-control" name="pass" id="exampleInputPassword1" placeholder="Password">
+
+
+                      </div>
+                        <div class="form-group text-center">
+                            <button type="submit" class="btn btn-success">Create Account</button>
+
+                        </div>
+                        <div class="form-group text-center">
+
+                            <a href=login> Already have account?</a>
+                        </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock%}
+
+
